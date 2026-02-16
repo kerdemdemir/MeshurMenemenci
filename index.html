@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harput Büfe | Meşhur Menemenci İsmet Usta - İstanbul</title>
+    <meta name="description" content="İstanbul'un meşhur menemencisi İsmet Usta. Harput Büfe'de sıcacık menemen, tost ve kahvaltı keyfi. Samimi, doyurucu, huzurlu.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --warm-cream: #FFF8F0;
+            --warm-yellow: #F5C518;
+            --deep-red: #C0392B;
+            --soft-red: #E74C3C;
+            --warm-brown: #5D4037;
+            --dark-brown: #3E2723;
+            --light-brown: #8D6E63;
+            --warm-orange: #E8A027;
+            --soft-bg: #FFFDF7;
+            --text-dark: #2C1810;
+            --text-muted: #6D5D53;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background: var(--soft-bg);
+            overflow-x: hidden;
+        }
+
+        /* ── Navigation ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(62, 39, 35, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0 2rem;
+            transition: box-shadow 0.3s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--warm-yellow);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-logo span {
+            color: #fff;
+            font-weight: 400;
+            font-size: 0.85rem;
+            display: block;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--warm-yellow);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--warm-yellow);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: #fff;
+            transition: all 0.3s;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('Pictures/unnamed (5).webp') center/cover no-repeat;
+            filter: brightness(0.35);
+            transform: scale(1.05);
+        }
+
+        .hero-content {
+            position: relative;
+            text-align: center;
+            color: #fff;
+            padding: 2rem;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--warm-yellow);
+            color: var(--dark-brown);
+            padding: 0.4rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 30px rgba(0,0,0,0.5);
+        }
+
+        .hero h1 .highlight {
+            color: var(--warm-yellow);
+        }
+
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+            font-weight: 400;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.7;
+            max-width: 550px;
+            margin: 0 auto 2.5rem;
+            font-weight: 300;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--warm-yellow);
+            color: var(--dark-brown);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(245, 197, 24, 0.3);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(245, 197, 24, 0.4);
+            background: #ffd54f;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.5);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator .arrow {
+            width: 20px;
+            height: 20px;
+            border-right: 2px solid rgba(255,255,255,0.5);
+            border-bottom: 2px solid rgba(255,255,255,0.5);
+            transform: rotate(45deg);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        /* ── Section common ── */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            color: var(--warm-orange);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--dark-brown);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--warm-yellow), var(--warm-orange));
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* ── About ── */
+        #hakkimizda {
+            background: var(--warm-cream);
+        }
+
+        .about-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: 15px;
+            bottom: 15px;
+            border: 3px solid var(--warm-yellow);
+            border-radius: 16px;
+            z-index: -1;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--dark-brown);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .about-feature .icon {
+            width: 40px;
+            height: 40px;
+            background: var(--warm-yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .about-feature span {
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--warm-brown);
+        }
+
+        /* ── Gallery ── */
+        #galeri {
+            background: var(--dark-brown);
+            color: #fff;
+        }
+
+        #galeri .section-tag {
+            color: var(--warm-yellow);
+        }
+
+        #galeri .section-header h2 {
+            color: #fff;
+        }
+
+        #galeri .section-header p {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .gallery-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto auto;
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item.tall {
+            grid-row: span 2;
+            aspect-ratio: auto;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(62,39,35,0.8) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .gallery-item .overlay span {
+            color: #fff;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        /* ── Menu ── */
+        #menu {
+            background: var(--soft-bg);
+        }
+
+        .menu-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .menu-category {
+            margin-bottom: 3rem;
+        }
+
+        .menu-category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--dark-brown);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--warm-yellow);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .menu-category-title .cat-icon {
+            font-size: 1.4rem;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.9rem 0;
+            border-bottom: 1px dashed rgba(141, 110, 99, 0.2);
+            transition: background 0.2s;
+        }
+
+        .menu-item:hover {
+            background: rgba(245, 197, 24, 0.05);
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            margin-left: -0.5rem;
+            margin-right: -0.5rem;
+            border-radius: 6px;
+        }
+
+        .menu-item-name {
+            font-weight: 500;
+            color: var(--warm-brown);
+            font-size: 1.05rem;
+        }
+
+        .menu-item-dots {
+            flex: 1;
+            border-bottom: 1px dotted rgba(141, 110, 99, 0.3);
+            margin: 0 0.75rem;
+            min-width: 30px;
+            height: 1px;
+            align-self: center;
+        }
+
+        .menu-item-price {
+            font-weight: 600;
+            color: var(--deep-red);
+            font-size: 1.05rem;
+            white-space: nowrap;
+        }
+
+        .menu-note {
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        /* ── Atmosphere strip ── */
+        .atmosphere {
+            position: relative;
+            height: 450px;
+            overflow: hidden;
+        }
+
+        .atmosphere-bg {
+            position: absolute;
+            inset: 0;
+            background: url('Pictures/unnamed (8).webp') center/cover no-repeat;
+            filter: brightness(0.4);
+        }
+
+        .atmosphere-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .atmosphere-content blockquote {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-style: italic;
+            max-width: 700px;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .atmosphere-content cite {
+            font-style: normal;
+            color: var(--warm-yellow);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* ── Contact ── */
+        #iletisim {
+            background: var(--warm-cream);
+        }
+
+        .contact-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            display: flex;
+            gap: 1.2rem;
+            align-items: flex-start;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-card .card-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--warm-yellow), var(--warm-orange));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .contact-card h4 {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-card p {
+            font-weight: 500;
+            color: var(--dark-brown);
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+
+        .contact-card a {
+            color: var(--dark-brown);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-card a:hover {
+            color: var(--deep-red);
+        }
+
+        .contact-map {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            min-height: 350px;
+        }
+
+        .contact-map img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: var(--dark-brown);
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--warm-yellow);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-tagline {
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        footer p {
+            font-size: 0.8rem;
+        }
+
+        /* ── Lightbox ── */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0,0,0,0.92);
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(62, 39, 35, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s;
+                pointer-events: none;
+            }
+
+            .nav-links.open {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .about-image::before {
+                display: none;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-item.tall {
+                grid-row: span 1;
+                aspect-ratio: 4/3;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .atmosphere {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 500px;
+            }
+        }
+
+        /* ── Animations ── */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                Harput Büfe
+                <span>Meşhur Menemenci İsmet Usta</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#galeri">Galeri</a></li>
+                <li><a href="#menu">Menü</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Menüyü aç">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="anasayfa">
+        <div class="hero-bg"></div>
+        <div class="hero-content fade-in">
+            <div class="hero-badge">2002'den Beri</div>
+            <h1>Harput <span class="highlight">Büfe</span></h1>
+            <p class="hero-subtitle">Meşhur Menemenci İsmet Usta</p>
+            <p class="hero-desc">
+                İstanbul'un kalbinde, yılların tecrübesiyle hazırlanan eşsiz menemen ve kahvaltı lezzetleri. Samimi ortamda, doyurucu sofralar.
+            </p>
+            <a href="#menu" class="hero-cta">Menüyü İncele</a>
+        </div>
+        <div class="scroll-indicator">
+            <span>Keşfet</span>
+            <div class="arrow"></div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="hakkimizda">
+        <div class="section-header fade-in">
+            <div class="section-tag">Hikayemiz</div>
+            <h2>Samimiyetle Pişirilir, Sevgiyle Sunulur</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="about-grid">
+            <div class="about-image fade-in">
+                <img src="Pictures/unnamed.webp" alt="Harput Büfe dış görünüm" loading="lazy">
+            </div>
+            <div class="about-text fade-in">
+                <h3>Bir Tabak Menemenin Huzur Vereceği Yer</h3>
+                <p>
+                    Harput Büfe, İsmet Usta'nın elinden çıkan menemenleriyle İstanbul'da bir klasik haline geldi. 2002 yılından bu yana, her sabah aynı özenle, aynı samimiyetle sofralar hazırlıyoruz.
+                </p>
+                <p>
+                    Burada her şey dürüst: Malzemeler taze, porsiyonlar doyurucu, fiyatlar uygun. Süslü değiliz, iddialı değiliz. Sadece güzel yemek yapıyoruz ve sizi içtenlikle ağırlıyoruz.
+                </p>
+                <p>
+                    Bir çay eşliğinde bakır tavada fokurdayan menemenin keyfini çıkarın, evinizde gibi hissedin. Burası tam da böyle bir yer.
+                </p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <div class="icon">&#127859;</div>
+                        <span>Taze Malzeme</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="icon">&#10084;</div>
+                        <span>Samimi Ortam</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="icon">&#129379;</div>
+                        <span>Doyurucu Porsiyon</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="icon">&#9749;</div>
+                        <span>Sıcak Karşılama</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="galeri">
+        <div class="section-header fade-in">
+            <div class="section-tag">Galeri</div>
+            <h2>Lezzetlerden Kareler</h2>
+            <p>Bakır tavalardan taşan lezzetler, doyurucu sofralar ve samimi anlar.</p>
+            <div class="divider"></div>
+        </div>
+        <div class="gallery-grid fade-in">
+            <div class="gallery-item tall" onclick="openLightbox(this)">
+                <img src="Pictures/unnamed (8).webp" alt="Güneşli masada menemen ziyafeti" loading="lazy">
+                <div class="overlay"><span>Güneşli Bir Kahvaltı</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="Pictures/unnamed (2).webp" alt="Bakır tavada menemen" loading="lazy">
+                <div class="overlay"><span>Meşhur Menemen</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="Pictures/unnamed (3).webp" alt="Kaşarlı tost" loading="lazy">
+                <div class="overlay"><span>Kaşarlı Tost</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="Pictures/unnamed (7).webp" alt="Köfte tabağı" loading="lazy">
+                <div class="overlay"><span>Köfte Tabağı</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="Pictures/unnamed (4).webp" alt="Tezgah ve vitrin" loading="lazy">
+                <div class="overlay"><span>Taze Vitrin</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="Pictures/unnamed.jpg" alt="Menemen yakın çekim" loading="lazy">
+                <div class="overlay"><span>Fokurdayan Lezzet</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="Pictures/unnamed (5).webp" alt="Kahvaltı sofrası" loading="lazy">
+                <div class="overlay"><span>Doyurucu Sofra</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="Pictures/unnamed (6).webp" alt="Sucuk ve kasa" loading="lazy">
+                <div class="overlay"><span>Harput Büfe</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu -->
+    <section id="menu">
+        <div class="section-header fade-in">
+            <div class="section-tag">Menümüz</div>
+            <h2>Fiyat Listesi</h2>
+            <p>Doyurucu lezzetler, dürüst fiyatlar.</p>
+            <div class="divider"></div>
+        </div>
+        <div class="menu-container fade-in">
+
+            <!-- Menemen -->
+            <div class="menu-category">
+                <div class="menu-category-title">
+                    <span class="cat-icon">&#127859;</span> Menemenler
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Menemen</span>
+                    <span class="menu-item-dots"></span>
+                    <span class="menu-item-price">190 &#8378;</span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Sucuklu Menemen</span>
+                    <span class="menu-item-dots"></span>
+                    <span class="menu-item-price">215 &#8378;</span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Kaşarlı Menemen</span>
+                    <span class="menu-item-dots"></span>
+                    <span class="menu-item-price">215 &#8378;</span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Kavurmalı Menemen</span>
+                    <span class="menu-item-dots"></span>
+                    <span class="menu-item-price">290 &#8378;</span>
+                </div>
+            </div>
+
+            <!-- Tostlar -->
+            <div class="menu-category">
+                <div class="menu-category-title">
+                    <span class="cat-icon">&#129386;</span> Tostlar & Sandviçler
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Kaşarlı Tost</span>
+                    <span class="menu-item-dots"></span>
+                    <span class="menu-item-price">110 &#8378;</span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Karışık Tost</span>
+                    <span class="menu-item-dots"></span>
+                    <span class="menu-item-price">120 &#8378;</span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Yengen Tost</span>
+                    <span class="menu-item-dots"></span>
+                    <span class="menu-item-price">120 &#8378;</span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Kavurmalı Tost</span>
+                    <span class="menu-item-dots"></span>
+                    <span class="menu-item-price">200 &#8378;</span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Soğuk Sandviç</span>
+                    <span class="menu-item-dots"></span>
+                    <span class="menu-item-price">120 &#8378;</span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Kavurmalı Kaşarlı Sandviç</span>
+                    <span class="menu-item-dots"></span>
+                    <span class="menu-item-price">200 &#8378;</span>
+                </div>
+            </div>
+
+            <!-- Yemekler -->
+            <div class="menu-category">
+                <div class="menu-category-title">
+                    <span class="cat-icon">&#127869;</span> Yemekler & Kahvaltı
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Patso</span>
+                    <span class="menu-item-dots"></span>
+                    <span class="menu-item-price">150 &#8378;</span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Special</span>
+                    <span class="menu-item-dots"></span>
+                    <span class="menu-item-price">200 &#8378;</span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Kahvaltı Tabağı</span>
+                    <span class="menu-item-dots"></span>
+                    <span class="menu-item-price">200 &#8378;</span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Yarım Ekmek Köfte</span>
+                    <span class="menu-item-dots"></span>
+                    <span class="menu-item-price">200 &#8378;</span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Sucuk Ekmek</span>
+                    <span class="menu-item-dots"></span>
+                    <span class="menu-item-price">150 &#8378;</span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Tavuk Döner</span>
+                    <span class="menu-item-dots"></span>
+                    <span class="menu-item-price">150 &#8378;</span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Sahanda Yumurta</span>
+                    <span class="menu-item-dots"></span>
+                    <span class="menu-item-price">130 &#8378;</span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Sucuklu Yumurta</span>
+                    <span class="menu-item-dots"></span>
+                    <span class="menu-item-price">150 &#8378;</span>
+                </div>
+            </div>
+
+            <!-- İçecekler -->
+            <div class="menu-category">
+                <div class="menu-category-title">
+                    <span class="cat-icon">&#9749;</span> İçecekler
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Çay</span>
+                    <span class="menu-item-dots"></span>
+                    <span class="menu-item-price">20 &#8378;</span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Türk Kahvesi</span>
+                    <span class="menu-item-dots"></span>
+                    <span class="menu-item-price">40 &#8378;</span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Nescafe</span>
+                    <span class="menu-item-dots"></span>
+                    <span class="menu-item-price">50 &#8378;</span>
+                </div>
+            </div>
+
+            <p class="menu-note">* Fiyatlar güncellenebilir. Güncel fiyatlar için lütfen bizi arayın.</p>
+        </div>
+    </section>
+
+    <!-- Atmosphere Quote -->
+    <div class="atmosphere">
+        <div class="atmosphere-bg"></div>
+        <div class="atmosphere-content fade-in">
+            <blockquote>
+                "Güzel bir kahvaltı, güzel bir güne başlamanın en samimi yoludur."
+            </blockquote>
+            <cite>Harput Büfe Ailesi</cite>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <section id="iletisim">
+        <div class="section-header fade-in">
+            <div class="section-tag">İletişim</div>
+            <h2>Bizi Ziyaret Edin</h2>
+            <p>Kapımız her zaman açık, çayımız her zaman demli.</p>
+            <div class="divider"></div>
+        </div>
+        <div class="contact-grid fade-in">
+            <div class="contact-info">
+                <div class="contact-card">
+                    <div class="card-icon">&#128222;</div>
+                    <div>
+                        <h4>Telefon</h4>
+                        <p><a href="tel:+905372567895">0537 256 78 95</a></p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="card-icon">&#128205;</div>
+                    <div>
+                        <h4>Adres</h4>
+                        <p>Harput Büfe<br>Meşhur Menemenci İsmet Usta<br>İstanbul</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="card-icon">&#128336;</div>
+                    <div>
+                        <h4>Çalışma Saatleri</h4>
+                        <p>Her gün açığız<br>Sabahtan akşama kadar</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="card-icon">&#128171;</div>
+                    <div>
+                        <h4>Slogan</h4>
+                        <p><em>"Dürüst lezzet, samimi sofra."</em></p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-map">
+                <img src="Pictures/unnamed (1).webp" alt="Harput Büfe dış görünüm" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Harput Büfe</div>
+        <p class="footer-tagline">Meşhur Menemenci İsmet Usta &bull; 2002'den beri</p>
+        <p>&copy; 2026 Harput Büfe. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" aria-label="Kapat">&times;</button>
+        <img src="" alt="Büyütülmüş fotoğraf" id="lightboxImg">
+    </div>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            const spans = hamburger.querySelectorAll('span');
+            if (navLinks.classList.contains('open')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+            } else {
+                spans[0].style.transform = '';
+                spans[1].style.opacity = '';
+                spans[2].style.transform = '';
+            }
+        });
+
+        // Close mobile menu on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                const spans = hamburger.querySelectorAll('span');
+                spans[0].style.transform = '';
+                spans[1].style.opacity = '';
+                spans[2].style.transform = '';
+            });
+        });
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Lightbox
+        function openLightbox(item) {
+            const img = item.querySelector('img');
+            document.getElementById('lightboxImg').src = img.src;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // Smooth scroll for CTA
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
